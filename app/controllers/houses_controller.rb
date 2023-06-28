@@ -3,7 +3,11 @@ class HousesController < ApplicationController
 
   # GET /houses or /houses.json
   def index
+    if params[:place].present? 
+      @houses = House.near(params[:place], 10,order: :distance)
+    else
     @houses = House.all
+    end
   end
 
   # GET /houses/1 or /houses/1.json

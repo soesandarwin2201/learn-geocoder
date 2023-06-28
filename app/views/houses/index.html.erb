@@ -2,6 +2,11 @@
 
 <h1>Houses</h1>
 
+<%= form_with url: houses_path, method: :get do |form| %>
+  <%= form.text_field :place, value: params[:place] %>
+  <%= form.submit %>
+<% end %>
+
 <div id="houses">
   <% @houses.each do |house| %>
     <%= render house %>
@@ -12,3 +17,4 @@
 </div>
 
 <%= link_to "New house", new_house_path %>
+
